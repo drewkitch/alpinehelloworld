@@ -4,3 +4,4 @@ app:
 
 heroku-deployment:
   image: codeship/heroku-deployment
+  encrypted_env_file: env.encrypted
