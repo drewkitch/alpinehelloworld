@@ -1,0 +1,5 @@
+- name: check version of Heroku CLI
+  service: heroku-deployment
+  command: heroku version
+- service: heroku-deployment
+  command: heroku ps

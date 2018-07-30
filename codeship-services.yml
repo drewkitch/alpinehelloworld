@@ -1,0 +1,6 @@
+app:
+  build:
+    dockerfile: Dockerfile
+
+heroku-deployment:
+  image: codeship/heroku-deployment
