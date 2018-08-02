@@ -1,7 +1,16 @@
 app:
   build:
+    image: registry.heroku.com/polar-ridge-82419/web
     dockerfile: Dockerfile
 
-heroku-deployment:
+heroku-dockercfg:
+  image: codeship/heroku-dockercfg-generator
+  add_docker: true
+  encrypted_env_file: heroku.encrypted
+
+heroku-release:
   image: codeship/heroku-deployment
-  encrypted_env_file: env.encrypted
+  add_docker: true
+  encrypted_env_file: heroku.encrypted
+  volumes:
+    - ./webapp:/deploy
