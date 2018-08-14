@@ -1,19 +1,19 @@
-- name: check version of Heroku CLI
-  service: heroku-release
-  command: heroku version
+# - name: check version of Heroku CLI
+#   service: heroku
+#   command: heroku version
 
 - type: serial
   tag: master
   steps:
-    - service: heroku-release
-      command: codeship_heroku_deploy /webapp polar-ridge-82419
-    # - service: app
-    #   type: push
-    #   image_name: registry.heroku.com/polar-ridge-82419/web
-    #   registry: registry.heroku.com
-    #   dockercfg_service: heroku-dockercfg
-    # - service: heroku-release
-    #   command: heroku access --app polar-ridge-82419
+    # - service: heroku
+    #   command: codeship_heroku_deploy -f /webapp
+    - service: app
+      type: push
+      image_name: registry.heroku.com/polar-ridge-82419/web
+      registry: registry.heroku.com
+      dockercfg_service: heroku-dockercfg
+    - service: heroku
+      command: heroku container:release --app polar-ridge-82419 web
     # - service: heroku-release
     #   command: heroku apps:info --app polar-ridge-82419
     # - service: heroku-release
